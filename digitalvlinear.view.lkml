@@ -1,5 +1,5 @@
-view: digital {
-  sql_table_name: rob.digitalonly ;;
+view: digitalvlinear {
+  sql_table_name: rob.digital ;;
 
   dimension: bi_acct_exec_nm {
     type: string
@@ -11,34 +11,9 @@ view: digital {
     sql: ${TABLE}.BI_ACTV_AE_NM ;;
   }
 
-  dimension: bi_digital {
-    type: yesno
-    sql: ${TABLE}.BI_DIGITAL ;;
-  }
-
   dimension: bi_month_key {
     type: number
     sql: ${TABLE}.BI_MONTH_KEY ;;
-  }
-
-  dimension: bi_network_cd {
-    type: string
-    sql: ${TABLE}.BI_NETWORK_CD ;;
-  }
-
-  dimension: bi_network_nm {
-    type: string
-    sql: ${TABLE}.BI_NETWORK_NM ;;
-  }
-
-  dimension: bi_network_product_type {
-    type: string
-    sql: ${TABLE}.BI_NETWORK_PRODUCT_TYPE ;;
-  }
-
-  dimension: bi_network_type {
-    type: string
-    sql: ${TABLE}.BI_NETWORK_TYPE ;;
   }
 
   dimension: bi_parent {
@@ -61,14 +36,19 @@ view: digital {
     sql: ${TABLE}.BI_SYSCODE_TYPE ;;
   }
 
+  dimension: crncy {
+    type: number
+    sql: ${TABLE}.CRNCY ;;
+  }
+
+  dimension: crnpy {
+    type: number
+    sql: ${TABLE}.CRNPY ;;
+  }
+
   dimension: drncy {
     type: number
     sql: ${TABLE}.DRNCY ;;
-  }
-
-  dimension: drncytm {
-    type: number
-    sql: ${TABLE}.DRNCYTM ;;
   }
 
   dimension: drnpy {
