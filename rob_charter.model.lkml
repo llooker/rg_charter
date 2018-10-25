@@ -14,7 +14,7 @@ explore: digitalvlinear {
     view_label: "Digital"
     relationship: one_to_many
     sql_on: ${digitalvlinear.bi_month_key} = ${digital.bi_month_key}
-            AND ${digitalvlinear.bi_primary} = ${digital.bi_primary}
+            AND ${digitalvlinear.bi_parent} = ${digital.bi_parent}
             AND ${digitalvlinear.market} = ${digital.market}
             AND ${digitalvlinear.bi_revcat_nm} = ${digital.bi_revcat_nm}
             AND ${digitalvlinear.bi_syscode_type} = ${digital.bi_syscode_type}
