@@ -1,5 +1,16 @@
 view: digitalvlinear {
-  sql_table_name: rob.digital ;;
+  # sql_table_name: rob.digital ;;
+
+  derived_table: {
+    sql:
+      SELECT
+        GENERATE_UUID() as uuid, *
+      FROM `rob.digital` AS digitalvlinear;;
+  }
+
+  dimension: uuid {
+    primary_key: yes
+  }
 
   dimension: bi_acct_exec_nm {
     label: "Acct Exec Name"
@@ -46,24 +57,28 @@ view: digitalvlinear {
   dimension: crncy {
     label: "Customer Revenue Current Year"
     type: number
+    value_format_name: usd_0
     sql: ${TABLE}.CRNCY ;;
   }
 
   dimension: crnpy {
     label: "Customer Revenue Prior Year"
     type: number
+    value_format_name: usd_0
     sql: ${TABLE}.CRNPY ;;
   }
 
   dimension: drncy {
     label: "Digital Revenue Current Year"
     type: number
+    value_format_name: usd_0
     sql: ${TABLE}.DRNCY ;;
   }
 
   dimension: drnpy {
     label: "Digital Revenue Prior Year"
     type: number
+    value_format_name: usd_0
     sql: ${TABLE}.DRNPY ;;
   }
 

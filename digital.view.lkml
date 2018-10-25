@@ -1,5 +1,16 @@
 view: digital {
-  sql_table_name: rob.digitalonly ;;
+  # sql_table_name: rob.digitalonly ;;
+
+  derived_table: {
+    sql:
+      SELECT
+        GENERATE_UUID() as uuid, *
+      FROM `rob.digitalonly` AS digital ;;
+  }
+
+  dimension: uuid {
+    primary_key: yes
+  }
 
   dimension: bi_acct_exec_nm {
     label: "Acct Exec Name"
@@ -112,6 +123,6 @@ view: digital {
 
   measure: count {
     type: count
-    drill_fields: []
+     drill_fields: []
   }
 }

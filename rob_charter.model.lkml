@@ -1,10 +1,7 @@
 connection: "bigquery"
-
-# include all the views
 include: "*.view"
 
 datagroup: rg_charter_default_datagroup {
-  # sql_trigger: SELECT MAX(id) FROM etl_log;;
   max_cache_age: "1 hour"
 }
 
@@ -17,7 +14,18 @@ explore: digitalvlinear {
     view_label: "Digital"
     relationship: one_to_many
     sql_on: ${digitalvlinear.bi_month_key} = ${digital.bi_month_key}
-    AND
-    ${digitalvlinear.bi_primary} = ${digital.bi_primary};;
+            AND ${digitalvlinear.bi_primary} = ${digital.bi_primary}
+            AND ${digitalvlinear.market} = ${digital.market}
+            AND ${digitalvlinear.bi_revcat_nm} = ${digital.bi_revcat_nm}
+            AND ${digitalvlinear.bi_syscode_type} = ${digital.bi_syscode_type}
+            ;;
+    fields: [
+        digital.bi_network_cd,
+        digital.bi_network_nm,
+        digital.bi_digital,
+        digital.bi_network_product_type,
+        digital.bi_network_type,
+        digital.drncy
+      ]
   }
 }
