@@ -10,6 +10,7 @@ view: digitalvlinear {
 
   dimension: uuid {
     primary_key: yes
+    hidden: yes
   }
 
   dimension: bi_acct_exec_nm {

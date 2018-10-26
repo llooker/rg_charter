@@ -11,7 +11,7 @@ explore: digitalvlinear {
   label: "Digital vs. Linear"
   view_label: "Digital vs. Linear"
   join: digital {
-    view_label: "Digital"
+    view_label: "Digital Only"
     relationship: one_to_many
     sql_on: ${digitalvlinear.bi_month_key} = ${digital.bi_month_key}
             AND ${digitalvlinear.bi_parent} = ${digital.bi_parent}
