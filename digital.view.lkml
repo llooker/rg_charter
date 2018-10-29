@@ -92,18 +92,32 @@ view: digital {
     sql: ${TABLE}.DRNCY ;;
   }
 
-  dimension: drncytm {
-    label: "Digital Revenue Current Year Two Months"
-    type: number
+  measure: digital_revenue_current_year {
+    label: "Digital Revenue Current Year"
+    type: sum
     value_format_name: usd_0
-    sql: ${TABLE}.DRNCYTM ;;
+    sql: ${drncy} ;;
   }
+
+#   dimension: drncytm {
+#     label: "Digital Revenue Current Year Two Months"
+#     type: number
+#     value_format_name: usd_0
+#     sql: ${TABLE}.DRNCYTM ;;
+#   }
 
   dimension: drnpy {
     label: "Digital Revenue Prior Year"
     type: number
     value_format_name: usd_0
     sql: ${TABLE}.DRNPY ;;
+  }
+
+  measure: digital_revenue_prior_year {
+    label: "Digital Revenue Prior Year"
+    type: sum
+    value_format_name: usd_0
+    sql: ${drnpy} ;;
   }
 
   dimension: legacy_co {

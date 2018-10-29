@@ -19,13 +19,13 @@ explore: digitalvlinear {
             AND ${digitalvlinear.bi_revcat_nm} = ${digital.bi_revcat_nm}
             AND ${digitalvlinear.bi_syscode_type} = ${digital.bi_syscode_type}
             ;;
-    fields: [
-        digital.bi_network_cd,
-        digital.bi_network_nm,
-        digital.bi_digital,
-        digital.bi_network_product_type,
-        digital.bi_network_type,
-        digital.drncy
-      ]
+#     fields: [
+#         digital.bi_network_cd,
+#         digital.bi_network_nm,
+#         digital.bi_digital,
+#         digital.bi_network_product_type,
+#         digital.bi_network_type,
+#         digital.drncy
+#       ]
   }
 }
