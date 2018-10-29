@@ -27,6 +27,7 @@ view: digitalvlinear {
   }
 
   dimension: bi_month_key {
+    group_label: "Date Dimensions"
     label: "Month Number"
     type: number
     sql: ${TABLE}.BI_MONTH_KEY ;;
@@ -34,6 +35,7 @@ view: digitalvlinear {
   }
 
   dimension: month_name {
+    group_label: "Date Dimensions"
     type: string
     sql: case
           when ${bi_month_key} = 1 THEN 'Jan'
@@ -59,7 +61,7 @@ view: digitalvlinear {
 
     link: {
       label: "Website"
-      url: "http://www.google.com/search?q={{ value | encode_uri }}"
+      url: "http://www.google.com/search?q={{ value | encode_uri }}&btnI"
       icon_url: "http://www.google.com/s2/favicons?domain=www.{{ value | encode_uri }}.com"
     }
 
@@ -100,6 +102,7 @@ view: digitalvlinear {
   }
 
   dimension: crncy {
+    hidden: yes
     label: "Customer Revenue Current Year"
     type: number
     value_format_name: usd_0
@@ -108,6 +111,7 @@ view: digitalvlinear {
   }
 
   measure: linear_revenue_current_year {
+    group_label: "Financial Metrics"
     label: "Linear Revenue Current Year"
     type: sum
     value_format_name: usd_0
@@ -116,6 +120,7 @@ view: digitalvlinear {
   }
 
   dimension: crnpy {
+    hidden: yes
     label: "Customer Revenue Prior Year"
     type: number
     value_format_name: usd_0
@@ -124,6 +129,7 @@ view: digitalvlinear {
   }
 
   measure: linear_revenue_prior_year {
+    group_label: "Financial Metrics"
     label: "Linear Revenue Prior Year"
     type: sum
     value_format_name: usd_0
@@ -132,6 +138,7 @@ view: digitalvlinear {
   }
 
   dimension: drncy {
+    hidden: yes
     label: "Digital Revenue Current Year"
     type: number
     value_format_name: usd_0
@@ -140,6 +147,7 @@ view: digitalvlinear {
   }
 
   measure: digital_revenue_current_year {
+    group_label: "Financial Metrics"
     label: "Digital Revenue Current Year"
     type: sum
     value_format_name: usd_0
@@ -148,6 +156,7 @@ view: digitalvlinear {
   }
 
   dimension: drnpy {
+    hidden: yes
     label: "Digital Revenue Prior Year"
     type: number
     value_format_name: usd_0
@@ -156,6 +165,7 @@ view: digitalvlinear {
   }
 
   measure: digital_revenue_Prior_year {
+    group_label: "Financial Metrics"
     label: "Digital Revenue Prior Year"
     type: sum
     value_format_name: usd_0
@@ -164,6 +174,7 @@ view: digitalvlinear {
   }
 
    dimension: combined_drncy_crncy {
+    hidden: yes
      type: number
      value_format_name: usd
      sql: ${drncy} + ${crncy} ;;
@@ -172,6 +183,7 @@ view: digitalvlinear {
 
 
   measure: combined_revenue {
+    group_label: "Financial Metrics"
     label: "Total Revenue Current Year"
     type: sum
     value_format_name: usd_0
@@ -199,6 +211,7 @@ view: digitalvlinear {
   }
 
   dimension: week {
+    group_label: "Date Dimensions"
     type: number
     sql: ${TABLE}.WEEK ;;
     drill_fields: [detail*]
